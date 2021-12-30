@@ -61,7 +61,7 @@ public class BetterreadsDataloaderApplication {
 					Author author = new Author();
 					author.setName(jsonObject.optString("name"));
 					author.setPersonalName(jsonObject.optString("name"));
-					author.setId(jsonObject.optString("key").replace("/authors", ""));
+					author.setId(jsonObject.optString("key").replace("/authors/", ""));
 					authorRepository.save(author);
 					log.info("Saved information for Author: " + author.getName());
 				} catch (JSONException e) {
@@ -148,8 +148,8 @@ public class BetterreadsDataloaderApplication {
 //		log.info("Author record created");
 		log.info(authorDumpLocation);
 		log.info(worksDumpLocation);
-//		initAuthors();
-//		initWorks();
+		initAuthors();
+		initWorks();
 	}
 
 	@Bean
